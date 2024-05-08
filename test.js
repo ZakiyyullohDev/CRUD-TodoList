@@ -26,7 +26,7 @@ const getItemStorage = () => {
         todoLi.dataset.id = todo.id
         
         const todoP = document.createElement('p');
-        todoP.textContent = todo.todoText;
+        todoP.innerHTML = todo.todoText;
         todoP.dataset.id = todo.id
         
         const editBtn = document.createElement('button');
@@ -83,7 +83,7 @@ const editTodoFunc = () => {
                 text.addEventListener('keydown', (e) => {
                     if (e.key == 'Enter') {
                         text.setAttribute('contenteditable', false)
-                        const newValue = e.target.textContent
+                        const newValue = e.target.innerHTML
                         const itemId = e.target.dataset.id
                         const searchedTodo = todoList.find(todo => todo.id == e.target.dataset.id)
                         const index = todoList.indexOf(searchedTodo)
@@ -119,7 +119,7 @@ const addTodo = () => {
     todoLi.dataset.id = id
     
     const todoP = document.createElement('p')
-    todoP.textContent = todoText
+    todoP.innerHTML = todoText
     todoP.dataset.id = todoLi.dataset.id
     
     const editTodo = document.createElement('button')
